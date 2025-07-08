@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>영업관리 - 입금등록</title>
+
+        <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+
+        <meta name="description" content="엔젤페이 비주얼" />
+        <meta name="keywords" content="엔젤페이 비주얼" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="./img/og.png" />
+        <meta property="og:title" content="엔젤페이 비주얼" />
+        <meta property="og:description" content="엔젤페이 비주얼" />
+
+        <link rel="stylesheet" href="./style/globals.css" />
+        <link rel="stylesheet" href="./style/style.css" />
+        <script src="/lib/jquery.3.1.1.js"></script>
+        <script src="/js/globals.js"></script>
+    </head>
+    <body>
+        <!-- menu -->
+        <header>
+            <div class="top">
+                <div class="wrap">
+                    <h1>
+                        <img
+                            src="./img/ico_logo_w.svg"
+                            alt="화이트 로고 이미지"
+                        />
+                    </h1>
+                    <nav class="main_menu">
+                        <ul class="depth_1">
+                            <li>
+                                <a href="/" title="실시간관리">실시간관리</a>
+                                <ul class="depth_2">
+                                    <li>
+                                        <a href="/" title="실시간현황"
+                                            >실시간현황</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/" class="cur" title="영업관리"
+                                    >영업관리</a
+                                >
+
+                                <ul class="depth_2">
+                                    <li>
+                                        <a
+                                            href="/salesMgmt_salesOrder.html"
+                                            title="매출주문서등록"
+                                            >매출주문서등록</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/salesMgmt_reclaim.html"
+                                            title="용공회수등록"
+                                            >용공회수등록</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/salesMgmt_deposit.html"
+                                            class="cur"
+                                            title="입금등록"
+                                            >입금등록</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/salesMgmt_liquorCard.html"
+                                            title="주류카드결제처리등록"
+                                            >주류카드결제처리등록</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="/" title="상차관리">상차관리</a></li>
+                            <li><a href="/" title="오류관리">오류관리</a></li>
+                            <li><a href="/" title="일보관리">일보관리</a></li>
+                            <li><a href="/" title="공병관리">공병관리</a></li>
+                            <li><a href="/" title="주유관리">주유관리</a></li>
+                            <li><a href="/" title="알림톡">알림톡</a></li>
+                            <li>
+                                <a href="/" title="술오더 조회">술오더 조회</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button
+                        type="button"
+                        class="btn_side_menu"
+                        title="헴버거바 버튼"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+                <!-- side_menu -->
+                <div class="side_menu_bg"></div>
+                <nav class="side_menu">
+                    <h3>나의 메뉴</h3>
+                    <ul>
+                        <li><a href="/">나의 메뉴 1</a></li>
+                        <li><a href="/">나의 메뉴 2</a></li>
+                        <li><a href="/">나의 메뉴 3</a></li>
+                        <li><a href="/">나의 메뉴 4</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- 2th_menu_bg -->
+            <div class="bottom">
+                <div class="wrap">
+                    <div class="select_dt">
+                        <input
+                            type="date"
+                            name="totalDt"
+                            id="totalDt"
+                            class="total_dt"
+                        />
+                        <label for="totalDt"></label>
+                    </div>
+                    <div class="depth_2_box"></div>
+                    <div class="login_info">
+                        <p>홍길동</p>
+                        <button type="button" title="로그아웃 버튼">
+                            <svg fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6.9043 10.3125V8.3125H15.9043V5.3125L20.9043 9.3125L15.9043 13.3125V10.3125H6.9043Z"
+                                />
+                                <path
+                                    d="M2.9043 0.3125H11.9043C13.0073 0.3125 13.9043 1.2095 13.9043 2.3125V6.3125H11.9043V2.3125H2.9043V16.3125H11.9043V12.3125H13.9043V16.3125C13.9043 17.4155 13.0073 18.3125 11.9043 18.3125H2.9043C1.8013 18.3125 0.904297 17.4155 0.904297 16.3125V2.3125C0.904297 1.2095 1.8013 0.3125 2.9043 0.3125Z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- contents -->
+        <div class="container">
+            <div class="wrap">
+                <!-- table_top -->
+                <div class="table_top">
+                    <!-- page_btn_box -->
+                    <div class="page_btn_box">
+                        <button type="button" class="btn_purple" title="저장">
+                            저장 &#40;Ins&#41;
+                        </button>
+                        <button type="button" class="btn_orange" title="삭제">
+                            삭제 &#40;F8&#41;
+                        </button>
+                        <button type="button" class="btn_blue" title="조회">
+                            조회 &#40;F9&#41;
+                        </button>
+                        <button type="button" class="btn_blue" title="발행">
+                            발행 &#40;F10&#41;
+                        </button>
+                        <button type="button" class="btn_black" title="종료">
+                            종료 &#40;F12&#41;
+                        </button>
+                    </div>
+
+                    <!-- condition_box -->
+                    <div class="condition_box">
+                        <div class="row">
+                            <div class="left">
+                                <div class="col">
+                                    <p>작업일자</p>
+                                    <div class="select_dt">
+                                        <input
+                                            type="date"
+                                            name="workDt"
+                                            id="workDt"
+                                            class="work_dt"
+                                        />
+                                        <label for="workDt"></label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p>거래처</p>
+                                    <label>
+                                        <input
+                                            type="number"
+                                            name="bizCode"
+                                            id="bizCode"
+                                            placeholder="거래처 코드"
+                                    /></label>
+                                    <label>
+                                        <input
+                                            type="text"
+                                            name="correspondentNm"
+                                            id="correspondentNm"
+                                            placeholder="거래처 이름"
+                                        />
+                                    </label>
+                                    <button
+                                        type="button"
+                                        class="searchNm btn_blue"
+                                        title="거래처 찾기"
+                                    >
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                clip-rule="evenodd"
+                                                d="M6.40081 2.18966C5.40548 2.18966 4.45092 2.58505 3.74712 3.28885C3.04332 3.99266 2.64793 4.94722 2.64793 5.94254C2.64793 6.93787 3.04332 7.89243 3.74712 8.59623C4.45092 9.30003 5.40548 9.69542 6.40081 9.69542C7.39613 9.69542 8.35069 9.30003 9.0545 8.59623C9.7583 7.89243 10.1537 6.93787 10.1537 5.94254C10.1537 4.94722 9.7583 3.99266 9.0545 3.28885C8.35069 2.58505 7.39613 2.18966 6.40081 2.18966ZM0.771484 5.94254C0.771371 5.05658 0.980372 4.18311 1.38149 3.39315C1.7826 2.6032 2.36451 1.91908 3.07988 1.39642C3.79525 0.873762 4.62388 0.527332 5.49838 0.385305C6.37288 0.243278 7.26855 0.309664 8.11256 0.579064C8.95656 0.848464 9.72507 1.31327 10.3556 1.93568C10.9861 2.55809 11.4607 3.32053 11.741 4.16099C12.0213 5.00144 12.0992 5.89619 11.9685 6.77245C11.8378 7.64871 11.5021 8.48174 10.9887 9.2038L15.5081 13.7232C15.679 13.9002 15.7736 14.1372 15.7714 14.3831C15.7693 14.6291 15.6706 14.8645 15.4967 15.0384C15.3227 15.2124 15.0874 15.311 14.8414 15.3132C14.5954 15.3153 14.3584 15.2208 14.1815 15.0498L9.663 10.5314C8.82082 11.1302 7.83004 11.4857 6.79925 11.5588C5.76845 11.632 4.73741 11.42 3.81911 10.946C2.9008 10.4721 2.13067 9.75456 1.59311 8.87199C1.05554 7.98943 0.771284 6.97593 0.771484 5.94254Z"
+                                                fill="#fff"
+                                            />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <p>담당</p>
+                                    <label>
+                                        <input
+                                            type="text"
+                                            name="contactNm"
+                                            id="contactNm"
+                                            placeholder="담당자 이름"
+                                        />
+                                    </label>
+                                    <button
+                                        type="button"
+                                        class="btn_blue"
+                                        title="입금표생성"
+                                    >
+                                        입금표생성
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="col">
+                                    <p>전표번호</p>
+                                    <label>
+                                        <input
+                                            type="number"
+                                            name="slipNo"
+                                            id="slipNo"
+                                            placeholder="전표번호"
+                                    /></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="left">
+                                <div class="col">
+                                    <p>전일채권</p>
+                                    <label>
+                                        <input
+                                            type="number"
+                                            name="dayBefore"
+                                            id="dayBefore"
+                                            placeholder="전일채권"
+                                    /></label>
+                                </div>
+                                <div class="col">
+                                    <p>금일채권</p>
+                                    <label>
+                                        <input
+                                            type="number"
+                                            name="today"
+                                            id="today"
+                                            placeholder="금일채권"
+                                    /></label>
+                                </div>
+                                <div class="col">
+                                    <p>최근매출일</p>
+                                    <div class="select_dt">
+                                        <input
+                                            type="date"
+                                            name="lastSalesDt"
+                                            id="lastSalesDt"
+                                            class="last_sales_dt"
+                                        />
+                                        <label for="lastSalesDt"></label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p>최근입금일</p>
+                                    <div class="select_dt">
+                                        <input
+                                            type="date"
+                                            name="lastDepositDt"
+                                            id="lastDepositDt"
+                                            class="last_deposit_dt"
+                                        />
+                                        <label for="lastDepositDt"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- table_box -->
+                <div class="table_box">
+                    <table class="search_table">
+                        <caption>
+                            입금등록 검색 테이블
+                        </caption>
+                        <colgroup>
+                            <col style="width: 3%" />
+                            <col style="width: 4%" />
+                            <col style="width: 37%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label class="checkbox_label">
+                                        <input
+                                            type="checkbox"
+                                            name="allCk"
+                                            id="allCk"
+                                        />
+                                    </label>
+                                </th>
+                                <th><p>코드</p></th>
+                                <th><p>거래처</p></th>
+                                <th><p>매출합계</p></th>
+                                <th><p>카드입금</p></th>
+                                <th><p>현금입금</p></th>
+                                <th><p>용공대체</p></th>
+                                <th><p>기타입금</p></th>
+                                <th><p>입금합계</p></th>
+                                <th><p>외상금액</p></th>
+                                <th><p>추가입금</p></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="search_icon">
+                                        <img
+                                            src="./img/ico_search.svg"
+                                            alt="검색 아이콘"
+                                        />
+                                    </span>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input
+                                            type="text"
+                                            name="code"
+                                            id="code"
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input
+                                            type="text"
+                                            name="pdNm"
+                                            id="pdNm"
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="ml" id="ml"
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="" id=""
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="" id=""
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="" id=""
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="" id=""
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="" id=""
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="" id=""
+                                    /></label>
+                                </td>
+                                <td>
+                                    <label
+                                        ><input type="text" name="" id=""
+                                    /></label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="list_table_scroll">
+                        <table class="list_table">
+                            <caption>
+                                주문서등록 리스트 테이블
+                            </caption>
+                            <colgroup>
+                                <col style="width: 3%" />
+                                <col style="width: 4%" />
+                                <col style="width: 37%" />
+                                <col style="width: 7%" />
+                                <col style="width: 7%" />
+                                <col style="width: 7%" />
+                                <col style="width: 7%" />
+                                <col style="width: 7%" />
+                                <col style="width: 7%" />
+                                <col style="width: 7%" />
+                                <col style="width: 7%" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox_label">
+                                            <input
+                                                type="checkbox"
+                                                name="ck1"
+                                                id="ck1"
+                                            />
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <p>01730</p>
+                                    </td>
+                                    <td class="left">
+                                        <p>처음처럼 새로</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox_label">
+                                            <input
+                                                type="checkbox"
+                                                name="ck2"
+                                                id="ck2"
+                                            />
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <p>01283</p>
+                                    </td>
+                                    <td class="left">
+                                        <p>잭다니엘 애플[RF]</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox_label">
+                                            <input
+                                                type="checkbox"
+                                                name="ck3"
+                                                id="ck3"
+                                            />
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <p>24775</p>
+                                    </td>
+                                    <td class="left">
+                                        <p>좋은데이</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>9,999,999</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                </tr>
+                                <tr class="click">
+                                    <td>
+                                        <label class="checkbox_label">
+                                            <input
+                                                type="checkbox"
+                                                name="ck4"
+                                                id="ck4"
+                                                checked
+                                            />
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <p>98654</p>
+                                    </td>
+                                    <td class="left">
+                                        <p>대선</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox_label">
+                                            <input
+                                                type="checkbox"
+                                                name="ck5"
+                                                id="ck5"
+                                            />
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <p>13665</p>
+                                    </td>
+                                    <td class="left">
+                                        <p>캘리</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="checkbox_label">
+                                            <input
+                                                type="checkbox"
+                                                name="ck6"
+                                                id="ck6"
+                                            />
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <p>09853</p>
+                                    </td>
+                                    <td class="left">
+                                        <p>카스</p>
+                                    </td>
+
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                    <td class="right">
+                                        <p>120,000</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <table class="total_table">
+                        <caption>
+                            주문서 금액 합산 테이블
+                        </caption>
+                        <colgroup>
+                            <col style="width: 3%" />
+                            <col style="width: 4%" />
+                            <col style="width: 37%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                            <col style="width: 7%" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" class="right">
+                                    <p>합계수량 / 금액</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                                <td class="right">
+                                    <p>120,000</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- toble_bottom -->
+                    <div class="toble_bottom">
+                        <div class="contact_table">
+                            <table class="contact_head_table">
+                                <caption>
+                                    담당자 헤드 테이블
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 30%" />
+                                    <col style="width: 35%" />
+                                    <col style="width: 35%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th><p>코드</p></th>
+                                        <th><p>사원명</p></th>
+                                        <th><p>입금건수</p></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="table_scroll">
+                                <table class="contact_body_table">
+                                    <caption>
+                                        담당자 바디 테이블
+                                    </caption>
+                                    <colgroup>
+                                        <col style="width: 30%" />
+                                        <col style="width: 35%" />
+                                        <col style="width: 35%" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>012</p>
+                                            </td>
+                                            <td>
+                                                <p>김대리</p>
+                                            </td>
+                                            <td>
+                                                <p>43</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="click">
+                                            <td>
+                                                <p>133</p>
+                                            </td>
+                                            <td>
+                                                <p>안대리</p>
+                                            </td>
+                                            <td>
+                                                <p>5</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>876</p>
+                                            </td>
+                                            <td>
+                                                <p>박대리</p>
+                                            </td>
+                                            <td>
+                                                <p>123</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>035</p>
+                                            </td>
+                                            <td>
+                                                <p>이대리</p>
+                                            </td>
+                                            <td>
+                                                <p>245</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>765</p>
+                                            </td>
+                                            <td>
+                                                <p>송대리</p>
+                                            </td>
+                                            <td>
+                                                <p>43</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>123</p>
+                                            </td>
+                                            <td>
+                                                <p>유대리</p>
+                                            </td>
+                                            <td>
+                                                <p>43</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="correspondent_table">
+                            <table class="contact_head_table">
+                                <caption>
+                                    각 담당자 별 거래처 헤드 테이블
+                                </caption>
+                                <colgroup>
+                                    <col style="width: 6%" />
+                                    <col style="width: 28%" />
+                                    <col style="width: 8%" />
+                                    <col style="width: 6%" />
+                                    <col style="width: 11%" />
+                                    <col style="width: 11%" />
+                                    <col style="width: 11%" />
+                                    <col style="width: 11%" />
+                                    <col style="width: 8%" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th><p>코드</p></th>
+                                        <th><p>거래처</p></th>
+                                        <th><p>대표자명</p></th>
+                                        <th><p>전표번호</p></th>
+                                        <th><p>전일채권</p></th>
+                                        <th><p>입금합계</p></th>
+                                        <th><p>회상금액</p></th>
+                                        <th><p>금일채권</p></th>
+                                        <th><p>처리여부</p></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="table_scroll">
+                                <table class="contact_body_table">
+                                    <caption>
+                                        각 담당자 별 거래처 바디 테이블
+                                    </caption>
+                                    <colgroup>
+                                        <col style="width: 6%" />
+                                        <col style="width: 28%" />
+                                        <col style="width: 8%" />
+                                        <col style="width: 6%" />
+                                        <col style="width: 11%" />
+                                        <col style="width: 11%" />
+                                        <col style="width: 11%" />
+                                        <col style="width: 11%" />
+                                        <col style="width: 8%" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>쿠우쿠우(화명점)[6]</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>19234</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>준코뮤직타운(사상점)[6/2]</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>99999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>곱테랑(괘법점)[2/3]</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>19234</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>꼬들대패(덕포점)[0]</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>19234</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="click">
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>고래맥주창고</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>ㅇㅇ</p>
+                                            </td>
+                                            <td>
+                                                <p>19234</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>진 1926 보라메</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>ㅇㅇ</p>
+                                            </td>
+                                            <td>
+                                                <p>19234</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>돌쇠집</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>ㅇㅇ</p>
+                                            </td>
+                                            <td>
+                                                <p>19234</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>12454</p>
+                                            </td>
+                                            <td class="left">
+                                                <p>히토스지(봉천)</p>
+                                            </td>
+                                            <td>
+                                                <p>김대표</p>
+                                            </td>
+                                            <td>
+                                                <p>ㅇㅇ</p>
+                                            </td>
+                                            <td>
+                                                <p>19234</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>9,999,999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td class="right">
+                                                <p>999,999</p>
+                                            </td>
+                                            <td>
+                                                <p>미처리</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <div class="wrap">
+                <div>
+                    <p>&#40;주&#41;엔젤주판</p>
+                    <p>123-81-12345</p>
+                </div>
+                <div>
+                    <p>AngelPay.Co.LTD</p>
+                    <p>02-836-2811</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script src="/js/globals.js"></script>
+</html>
