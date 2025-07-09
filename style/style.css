@@ -64,6 +64,35 @@
     gap: 5px;
     margin-bottom: 10px;
 }
+.page_btn_box button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.page_btn_box button::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('/img/ico_btn_sprites.svg');
+    background-repeat: no-repeat;
+}
+.page_btn_box button:first-of-type::before {
+    background-position: 0 top;
+}
+.page_btn_box button:nth-of-type(2)::before {
+    background-position: 0 -17px;
+}
+.page_btn_box button:nth-of-type(3)::before {
+    background-position: 0 -32.7px;
+}
+.page_btn_box button:nth-of-type(4)::before {
+    background-position: 0 -48.5px;
+}
+.page_btn_box button:last-of-type::before {
+    background-position: 0 bottom;
+}
 
 /* condition_box */
 .condition_box {
